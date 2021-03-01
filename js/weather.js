@@ -9,7 +9,7 @@ weather.temperature = {
 };
 
 // Change to 'F' for Fahrenheit
-var tempUnit = 'C';
+var tempUnit = 'F';
 
 const KELVIN = 273.15;
 // Use your own key for the Weather, Get it here: https://openweathermap.org/
@@ -18,7 +18,7 @@ const key = 'aa5b0a76dfbf87441928fb3cc32d3d72';
 // Try HTML5 geolocation.
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
-    (position: Position) => {
+    (position) => {
       let latitude = position.coords.latitude,
       let longitude = position.coords.longitude,
       getWeather(latitude, longitude);
