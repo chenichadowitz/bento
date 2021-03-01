@@ -19,8 +19,8 @@ const key = 'aa5b0a76dfbf87441928fb3cc32d3d72';
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      let latitude = position.coords.latitude,
-      let longitude = position.coords.longitude,
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
       getWeather(latitude, longitude);
     },
     () => { // Could not get location, use default
