@@ -15,14 +15,28 @@ const KELVIN = 273.15;
 // Use your own key for the Weather, Get it here: https://openweathermap.org/
 const key = 'aa5b0a76dfbf87441928fb3cc32d3d72';
 
-// Set Position function
-setPosition();
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (position: Position) => {
+      let latitude = position.coords.latitude,
+      let longitude = position.coords.longitude,
+      getWeather(latitude, longitude);
+    },
+    () => { // Could not get location, use default
+      setPosition();
+    }
+  );
+} else {
+  // Browser doesn't support Geolocation, use default
+  setPosition();
+}
 
 function setPosition(position) {
   // Here you can change your position
-  // You can use https://www.latlong.net/ to get it! (I use San Francisco as an example)
-  let latitude = 37.774929;
-  let longitude = -122.419418;
+  // You can use https://www.latlong.net/ to get it!
+  let latitude = 42.351139;
+  let longitude = -71.131439;
 
   getWeather(latitude, longitude);
 }
